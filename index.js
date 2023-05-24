@@ -37,49 +37,30 @@ const clickedNumbers = [];
 const clicked_O = [];
 const clicked_X = [];
 const evenOdd = (index) => index % 2 == 0;
-// let checker = (arr, target) => target.every((v) => arr.includes(v));
 
-const isWinX = winConditions.some((arr) => {
-  // return if this combination is matching or not
-  return arr.every((o) => {
-    // return if the value matches or not
-    return clicked_X.includes(o);
-  });
-});
-
-const isWinO = winConditions.some((arr) => {
-  // return if this combination is matching or not
-  return arr.every((x) => {
-    // return if the value matches or not
-    return clicked_O.includes(x);
-  });
-});
 //check if for the winner--
 function clickButton(index) {
   console.log(`Button number ${index} is clicked`);
   // Your main code here.
-  // console.log(count);
-  // console.log(clickedNumbers.includes(index));
-  // console.log(clickedNumbers);
-  // console.log(clicked_O);
+
   if (!clickedNumbers.includes(index)) {
     clickedNumbers.push(index);
     count++;
     if (evenOdd(count)) {
       fillButton(index, "O");
       clicked_O.push(index);
+      if (checkWinner(clicked_O)) {
+        winningAlert("O");
+      }
     } else {
       fillButton(index, "X");
       clicked_X.push(index);
+      if (checkWinner(clicked_X)) {
+        winningAlert("X");
+      }
     }
   }
-  if (count > 3) {
-    if (isWinO) {
-      winningAlert("O");
-    } else if (isWinX) {
-      winningAlert("X");
-    }
-  }
+  console.log(clicked_O, clicked_X, clickedNumbers);
 }
 
 // ...
@@ -91,5 +72,15 @@ function clickButton(index) {
 /**
  * (Optional) It's always a good idea to make a function for every single purpose.
  */
-// function checkWinner
+const checkWinner = (playerMoves) => {
+  for (let i = 0; i < winConditions.length; i++) {
+    if (winConditions[i].every((move) => playerMoves.includes(move))) {
+      console.log(true);
+      return true;
+    }
+  }
+  console.log(false);
+  return false;
+};
+
 // function restartGame
