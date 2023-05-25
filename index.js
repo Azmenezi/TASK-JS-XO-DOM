@@ -22,20 +22,10 @@ function winningAlert(winner) {
  * Add your code here, since this is going to be your main function
  * That interacts with the UI
  */
-const row1 = [1, 2, 3];
-const row2 = [4, 5, 6];
-const row3 = [7, 8, 9];
-const col1 = [1, 4, 7];
-const col2 = [2, 5, 8];
-const col3 = [3, 6, 9];
-const cross1 = [1, 5, 9];
-const cross2 = [3, 5, 7];
-const winConditions = [row1, row2, row3, col1, col2, col3, cross1, cross2];
 
 let count = 0;
-const clickedNumbers = [];
-const clicked_O = [];
-const clicked_X = [];
+let clicked_O = [];
+let clicked_X = [];
 const evenOdd = (index) => index % 2 == 0;
 
 //check if for the winner--
@@ -43,24 +33,25 @@ function clickButton(index) {
   console.log(`Button number ${index} is clicked`);
   // Your main code here.
 
-  if (!clickedNumbers.includes(index)) {
-    clickedNumbers.push(index);
+  if (!clicked_X.includes(index) && !clicked_O.includes(index)) {
     count++;
     if (evenOdd(count)) {
       fillButton(index, "O");
       clicked_O.push(index);
       if (checkWinner(clicked_O)) {
         winningAlert("O");
+        restartGame();
       }
     } else {
       fillButton(index, "X");
       clicked_X.push(index);
       if (checkWinner(clicked_X)) {
         winningAlert("X");
+        restartGame();
       }
     }
   }
-  console.log(clicked_O, clicked_X, clickedNumbers);
+  console.log(clicked_O, clicked_X);
 }
 
 // ...
@@ -72,6 +63,17 @@ function clickButton(index) {
 /**
  * (Optional) It's always a good idea to make a function for every single purpose.
  */
+const winConditions = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+  [1, 4, 7],
+  [2, 5, 8],
+  [3, 6, 9],
+  [1, 5, 9],
+  [3, 5, 7],
+];
+
 const checkWinner = (playerMoves) => {
   for (let i = 0; i < winConditions.length; i++) {
     if (winConditions[i].every((move) => playerMoves.includes(move))) {
@@ -83,4 +85,10 @@ const checkWinner = (playerMoves) => {
   return false;
 };
 
-// function restartGame
+const restartGame = () => {
+  for (let i = 1; i < 10; i++) {
+    fillButton(i, "");
+  }
+  clicked_X = [];
+  clicked_O = [];
+};
