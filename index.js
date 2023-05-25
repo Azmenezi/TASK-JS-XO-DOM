@@ -48,6 +48,9 @@ function clickButton(index) {
       if (checkWinner(clicked_X)) {
         winningAlert("X");
         restartGame();
+      } else if (clicked_X.length == 5 && !checkWinner(clicked_X)) {
+        alert("Its A Tie");
+        restartGame();
       }
     }
   }
@@ -91,4 +94,5 @@ const restartGame = () => {
   }
   clicked_X = [];
   clicked_O = [];
+  count = 0;
 };
