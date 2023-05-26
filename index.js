@@ -27,7 +27,8 @@ let count = 0;
 let clicked_O = [];
 let clicked_X = [];
 const evenOdd = (index) => index % 2 == 0;
-
+let scoreX = 0;
+let scoreO = 0;
 //check if for the winner--
 function clickButton(index) {
   console.log(`Button number ${index} is clicked`);
@@ -37,19 +38,27 @@ function clickButton(index) {
     count++;
     if (evenOdd(count)) {
       fillButton(index, "O");
+      document.getElementById(index).classList.add("red");
+      document.getElementById("turn").innerHTML = "X to play";
       clicked_O.push(index);
       if (checkWinner(clicked_O)) {
-        winningAlert("O");
+        scoreO++;
+        document.getElementById("turn").innerHTML = "O Won the game!!";
+        document.getElementById("scoreO").innerHTML = `O score: ${scoreO}`;
         restartGame();
       }
     } else {
       fillButton(index, "X");
+      document.getElementById(index).classList.add("green");
+      document.getElementById("turn").innerHTML = "O to play";
       clicked_X.push(index);
       if (checkWinner(clicked_X)) {
-        winningAlert("X");
+        scoreX++;
+        document.getElementById("turn").innerHTML = "X Won the game!!";
+        document.getElementById("scoreX").innerHTML = `X score: ${scoreX}`;
         restartGame();
       } else if (clicked_X.length == 5 && !checkWinner(clicked_X)) {
-        alert("Its A Tie");
+        document.getElementById("turn").innerHTML = "Its A Tie!";
         restartGame();
       }
     }
@@ -91,8 +100,19 @@ const checkWinner = (playerMoves) => {
 const restartGame = () => {
   for (let i = 1; i < 10; i++) {
     fillButton(i, "");
+    document.getElementById(i).classList.remove("green");
+    document.getElementById(i).classList.remove("red");
   }
   clicked_X = [];
   clicked_O = [];
   count = 0;
+};
+
+const resetGame = () => {
+  scoreO = 0;
+  scoreX = 0;
+  document.getElementById("scoreO").innerHTML = `O score: ${scoreO}`;
+  document.getElementById("scoreX").innerHTML = `X score: ${scoreX}`;
+  document.getElementById("turn").innerHTML = "Game has been reset";
+  restartGame();
 };
