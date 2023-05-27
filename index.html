@@ -5,7 +5,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./Assets/styles.css" />
+    <link rel="stylesheet" href="./Assets/main.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
       rel="stylesheet"
@@ -15,38 +15,20 @@
   </head>
 
   <body>
-    <div class="big-container">
-      <div id="turn" class="turns">X will start</div>
-      <div id="point" class="points">
-        <div>Points</div>
-        <div id="scoreX" class="score">X score: 0</div>
-        <div id="scoreO" class="score">O score: 0</div>
-        <div class="btns">
-          <button class="btn" onclick="resetGame()">Reset Game</button>
-
-          <button class="btn" onclick="window.location.href=`./main.html`">
-            Main
+    <div class="container" id="container">
+      <div class="main">
+        <div class="button-container">
+          <button onclick="window.location.href=`./2player.html`">
+            2 Players
+          </button>
+          <button onclick="window.location.href=`./easy.html`">Easy</button>
+          <button onclick="window.location.href=`./normal.html`">Normal</button>
+          <button onclick="window.location.href=`./hard.html`">Hard</button>
+          <button onclick="window.location.href=`./impossible.html`">
+            Impossible
           </button>
         </div>
       </div>
-      <div class="container" id="container">
-        <div class="row">
-          <button id="1" class="xobutton" onclick="clickButton(1)"></button>
-          <button id="2" class="xobutton" onclick="clickButton(2)"></button>
-          <button id="3" class="xobutton" onclick="clickButton(3)"></button>
-        </div>
-        <div class="row">
-          <button id="4" class="xobutton" onclick="clickButton(4)"></button>
-          <button id="5" class="xobutton" onclick="clickButton(5)"></button>
-          <button id="6" class="xobutton" onclick="clickButton(6)"></button>
-        </div>
-        <div class="row">
-          <button id="7" class="xobutton" onclick="clickButton(7)"></button>
-          <button id="8" class="xobutton" onclick="clickButton(8)"></button>
-          <button id="9" class="xobutton" onclick="clickButton(9)"></button>
-        </div>
-      </div>
     </div>
-    <script src="./Scripts/index.js"></script>
   </body>
 </html>
