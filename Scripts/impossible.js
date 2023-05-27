@@ -49,7 +49,8 @@ const xWins = () => {
   addText("scoreX", `X score: ${scoreX}`);
   restartGame();
 };
-
+const xSpot = (index) => clicked_X.includes(index);
+const oSpot = (index) => clicked_O.includes(index);
 let count = 0;
 let clicked_O = [];
 let clicked_X = [];
@@ -153,6 +154,16 @@ function shuffle(array) {
   return array;
 }
 
+function cornered() {
+  let corners = [1, 3, 7, 9];
+  for (let i = 0; i < clicked_X.length; i++) {
+    if (clicked_X.includes(5) && corners.includes(clicked_X[i])) {
+      return true;
+    }
+  }
+  return false;
+}
+
 function bestMove() {
   // Check if AI can win in the next move
   for (let i = 1; i <= 9; i++) {
@@ -188,7 +199,20 @@ function bestMove() {
 
   let bCorners = [2, 4, 6, 8];
   let corners = [1, 3, 7, 9];
+  //take corner
   // Try to take a corner
+  for (let i = 0; i < corners.length; i++) {
+    if (
+      cornered() == true &&
+      !clicked_X.includes(corners[i]) &&
+      !clicked_O.includes(corners[i])
+    ) {
+      oPlayer(corners[i]);
+      return;
+    }
+  }
+
+  // Try to take a beside a corner
   for (let i = 0; i < bCorners.length; i++) {
     if (
       clicked_X.includes(corners[i]) &&
