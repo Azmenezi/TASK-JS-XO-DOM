@@ -79,6 +79,7 @@ button {
 }
 
 .winner {
+  opacity: 30%;
   font-size: 40px;
 }
 
@@ -99,5 +100,5 @@ button {
 }
 
 .button-text.animate {
-  animation: pop-in 0.2s;
+  animation: pop-in 0.25s;
 }
