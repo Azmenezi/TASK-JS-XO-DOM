@@ -27,6 +27,7 @@ body {
   justify-content: center;
 }
 button {
+  color: black;
   font-size: x-large;
   width: 200px;
   margin: 7%;
