@@ -15,8 +15,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 55vh;
+  margin-bottom: 60vh;
   margin-left: 100px;
+  overflow: hidden;
 }
 .points {
   width: 200px;
@@ -66,7 +67,6 @@ button {
   text-align: center;
   border: none;
   margin: 10px;
-
   font-family: "Permanent Marker", cursive;
 }
 
@@ -76,4 +76,28 @@ button {
 
 .red {
   color: red;
+}
+
+.winner {
+  font-size: 40px;
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.button-text {
+  display: inline-block;
+}
+
+.button-text.animate {
+  animation: pop-in 0.2s;
 }
