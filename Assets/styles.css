@@ -15,7 +15,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 54vh;
+  margin-bottom: 80vh;
   margin-left: 100px;
   overflow: hidden;
 }
@@ -28,8 +28,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20vh;
-  margin-right: 70vw;
+  margin-top: 20vh;
+  margin-left: 25vw;
   flex-wrap: wrap;
 }
 .score {
@@ -49,6 +49,7 @@ button {
   margin-left: 100px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 30vh;
 }
 
 .row {
