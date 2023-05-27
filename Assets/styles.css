@@ -8,38 +8,38 @@
 }
 .turns {
   border-style: solid;
-  padding: 0px 30px;
-  height: 50px;
-  font-size: 40px;
+  padding: 0px 10px;
+  height: 24px;
+  font-size: 20px;
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 60vh;
+  margin-bottom: 54vh;
   margin-left: 100px;
   overflow: hidden;
 }
 .points {
-  width: 200px;
+  width: 100px;
   border-style: solid;
-  height: 50px;
-  font-size: 40px;
+  height: 24px;
+  font-size: 20px;
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 33vh;
+  margin-bottom: 20vh;
   margin-right: 70vw;
   flex-wrap: wrap;
 }
 .score {
-  font-size: 30px;
-  margin-top: 40px;
+  font-size: 15px;
+  margin-top: 20px;
   margin-right: 34px;
 }
 button {
-  margin-top: 40px;
-  font-size: large;
+  margin-top: 13px;
+  font-size: small;
   color: black;
   background-color: white;
   border-style: dotted;
@@ -101,4 +101,110 @@ button {
 
 .button-text.animate {
   animation: pop-in 0.25s;
+}
+@media only screen and (min-width: 600px) {
+  .big-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+  }
+  .turns {
+    border-style: solid;
+    padding: 0px 30px;
+    height: 50px;
+    font-size: 40px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60vh;
+    margin-left: 100px;
+    overflow: hidden;
+  }
+  .points {
+    width: 200px;
+    border-style: solid;
+    height: 50px;
+    font-size: 40px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 33vh;
+    margin-right: 70vw;
+    flex-wrap: wrap;
+  }
+  .score {
+    font-size: 30px;
+    margin-top: 40px;
+    margin-right: 34px;
+  }
+  button {
+    margin-top: 40px;
+    font-size: large;
+    color: black;
+    background-color: white;
+    border-style: dotted;
+    border-color: black;
+  }
+  .container {
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .xobutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    background-color: #e3e3e3;
+    width: 85px;
+    height: 85px;
+    text-align: center;
+    border: none;
+    margin: 10px;
+    font-family: "Permanent Marker", cursive;
+  }
+
+  .green {
+    color: green;
+  }
+
+  .red {
+    color: red;
+  }
+
+  .winner {
+    opacity: 30%;
+    font-size: 40px;
+  }
+
+  @keyframes pop-in {
+    0% {
+      transform: scale(0);
+    }
+    80% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .button-text {
+    display: inline-block;
+  }
+
+  .button-text.animate {
+    animation: pop-in 0.25s;
+  }
 }
