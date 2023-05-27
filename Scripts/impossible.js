@@ -199,7 +199,6 @@ function bestMove() {
 
   let bCorners = [2, 4, 6, 8];
   let corners = [1, 3, 7, 9];
-  //take corner
   // Try to take a corner
   for (let i = 0; i < corners.length; i++) {
     if (
@@ -212,15 +211,19 @@ function bestMove() {
     }
   }
 
-  // Try to take a beside a corner
-  for (let i = 0; i < bCorners.length; i++) {
-    if (
-      clicked_X.includes(corners[i]) &&
-      !clicked_O.includes(bCorners[i]) &&
-      !clicked_X.includes(bCorners[i])
-    ) {
-      oPlayer(bCorners[i]);
-      return;
+  // Try to take a beside a corner If X has two corners
+  if (clicked_O.includes(5)) {
+    let xCorners = clicked_X.filter((i) => corners.includes(i));
+    if (xCorners.length === 2) {
+      for (let i = 0; i < bCorners.length; i++) {
+        if (
+          !clicked_X.includes(bCorners[i]) &&
+          !clicked_O.includes(bCorners[i])
+        ) {
+          oPlayer(bCorners[i]);
+          return;
+        }
+      }
     }
   }
 
